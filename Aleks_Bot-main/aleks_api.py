@@ -21,22 +21,13 @@ app = FastAPI(
 )
 
 # --- CORS Configuration ---
-# You might need to adjust `allow_origins` based on where your React app is served.
-# During development, "http://localhost:5173" (Vite's default) is common.
-# In production, this would be your actual website domain.
-origins = [
-    "http://localhost",
-    "http://localhost:5173", # Default Vite dev server port
-    "http://10.147.18.65:5173"
-    # Add your deployed website domain here, e.g., "https://your-bolt-app.com"
-]
-
+# Allow all origins for easier development - no need for credentials in a public legal assistant API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["*"],     # Allow all origins
+    allow_credentials=False, # Disable credentials to allow wildcard origins
+    allow_methods=["*"],     # Allow all HTTP methods
+    allow_headers=["*"],     # Allow all headers
 )
 
 # --- API Models (Pydantic for data validation) ---

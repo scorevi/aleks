@@ -9,7 +9,7 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0', // This makes Vite listen on all network interfaces
-    port: 5173,      // Explicitly set the port, though it's the default
+    port: 3000,      // Default port from env file
     // You might need to add this if you're getting CORS errors from the frontend to backend
     // proxy: {
     //   '/api': {

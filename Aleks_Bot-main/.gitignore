@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# ChromaDB
+chroma_db/chroma.sqlite3
+
+# Node.js / Frontend
+node_modules/
+.npm
+.vite/
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Package locks (optional - you might want to keep these)
+package-lock.json
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~

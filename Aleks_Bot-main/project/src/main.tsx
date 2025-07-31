@@ -3,16 +3,27 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx'; // This is your Chatbot App component
 import './index.css'; // Your main CSS for the React app
 
-// IMPORTANT: We are now mounting the React App into the 'ai-chatbot-root' div
-// which is located inside the chatbot modal in index.html.
-const chatbotRootElement = document.getElementById('ai-chatbot-root');
+// Try to mount to different possible root elements
+let rootElement = document.getElementById('ai-chatbot-root');
 
-if (chatbotRootElement) {
-  createRoot(chatbotRootElement).render(
+// If ai-chatbot-root doesn't exist, try to find or create a root element
+if (!rootElement) {
+  rootElement = document.getElementById('root');
+}
+
+if (!rootElement) {
+  // Create a root element if none exists
+  rootElement = document.createElement('div');
+  rootElement.id = 'root';
+  document.body.appendChild(rootElement);
+}
+
+if (rootElement) {
+  createRoot(rootElement).render(
     <StrictMode>
       <App />
     </StrictMode>
   );
 } else {
-  console.error("Could not find element with id 'ai-chatbot-root' to mount React chatbot.");
+  console.error("Could not find or create a root element to mount React app.");
 }
